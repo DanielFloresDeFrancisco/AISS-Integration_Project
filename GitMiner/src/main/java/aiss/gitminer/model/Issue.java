@@ -8,6 +8,7 @@ import javax.annotation.Generated;
 import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -58,6 +59,29 @@ public class Issue {
     @OneToMany(cascade = CascadeType.ALL)
     @JoinColumn(name = "issueId")
     private List<Comment> comments;
+
+    public Issue() {
+    }
+
+    public Issue(String id, String refId, String title, String description, String state, String createdAt,
+                 String updatedAt, String closedAt, List<String> labels, User author,
+                 User assignee, Integer upvotes, Integer downvotes, String webUrl, List<Comment> comments) {
+        this.id=id;
+        this.refId=refId;
+        this.title=title;
+        this.description=description;
+        this.state=state;
+        this.createdAt=createdAt;
+        this.updatedAt=updatedAt;
+        this.closedAt = closedAt;
+        this.labels=labels;
+        this.author=author;
+        this.assignee=assignee;
+        this.upvotes=upvotes;
+        this.downvotes=downvotes;
+        this.webUrl=webUrl;
+        this.comments=comments;
+    }
 
     public String getId() {
         return id;
