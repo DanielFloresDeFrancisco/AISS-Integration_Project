@@ -1,0 +1,534 @@
+{
+	"info": {
+		"_postman_id": "d68740b3-55e7-4a1e-9239-c1d81e59b2ee",
+		"name": "GitMiner",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "26915309"
+	},
+	"item": [
+		{
+			"name": "Create project",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Successful POST request\", function () {\r",
+							"    pm.expect(pm.response.code).to.be.oneOf([201]);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": \"15717393\",\r\n    \"name\": \"pitest\",\r\n    \"web_url\": \"https://github.com/hcoles/pitest\",\r\n    \"commits\": [\r\n        {\r\n            \"id\": \"ee6e291274fcca03801261f1fd0684aa32c6d140\",\r\n            \"title\": \"Merge pull request #1150 from hcoles/feature/results_interceptors\",\r\n            \"message\": \"\\n\\nNew extension point\",\r\n            \"author_name\": \"Henry Coles\",\r\n            \"author_email\": \"henry.coles@googlemail.com\",\r\n            \"authored_date\": \"2023-01-25T13:06:19Z\",\r\n            \"committer_name\": \"GitHub\",\r\n            \"committer_email\": \"noreply@github.com\",\r\n            \"committed_date\": \"2023-01-25T13:06:19Z\",\r\n            \"web_url\": \"https://github.com/hcoles/pitest/commit/ee6e291274fcca03801261f1fd0684aa32c6d140\"\r\n        },\r\n        {\r\n            \"id\": \"95e8102725b59780c07e89d4fca9a7563f12c976\",\r\n            \"title\": \"New extension points\",\r\n            \"message\": \"\\n\\nAdds new extension points to allow post analysis modification of\\ncoverage and mutation analysis results.\\n\\nExtensions points have multiple potential uses, but first use case is\\nsupporting the 'un-inlining' of inlined kotlin functions.\\n\\nChange requires alteration of existing interfaces which may be\\nincompatible with some third party plugins\",\r\n            \"author_name\": \"Henry Coles\",\r\n            \"author_email\": \"henry@pitest.org\",\r\n            \"authored_date\": \"2023-01-12T09:29:33Z\",\r\n            \"committer_name\": \"Henry Coles\",\r\n            \"committer_email\": \"henry@pitest.org\",\r\n            \"committed_date\": \"2023-01-25T12:10:40Z\",\r\n            \"web_url\": \"https://github.com/hcoles/pitest/commit/95e8102725b59780c07e89d4fca9a7563f12c976\"\r\n        },\r\n        {\r\n            \"id\": \"598e5f1f4fd2c60e9153f0839f9ceab4d13bedbe\",\r\n            \"title\": \"Merge pull request #1146 from davidburstrom/davidburstrom-definition\",\r\n            \"message\": \"\\n\\nFix spelling error in ComputClassWrite\",\r\n            \"author_name\": \"Henry Coles\",\r\n            \"author_email\": \"henry.coles@googlemail.com\",\r\n            \"authored_date\": \"2023-01-20T18:17:08Z\",\r\n            \"committer_name\": \"GitHub\",\r\n            \"committer_email\": \"noreply@github.com\",\r\n            \"committed_date\": \"2023-01-20T18:17:08Z\",\r\n            \"web_url\": \"https://github.com/hcoles/pitest/commit/598e5f1f4fd2c60e9153f0839f9ceab4d13bedbe\"\r\n        },\r\n        {\r\n            \"id\": \"cef73029ab02ee4486a340b21877e4ec4e545c18\",\r\n            \"title\": \"\",\r\n            \"message\": \"Update ComputeClassWriter.java\",\r\n            \"author_name\": \"davidburstrom\",\r\n            \"author_email\": \"david.burstrom@gmail.com\",\r\n            \"authored_date\": \"2023-01-18T12:39:02Z\",\r\n            \"committer_name\": \"GitHub\",\r\n            \"committer_email\": \"noreply@github.com\",\r\n            \"committed_date\": \"2023-01-18T12:39:02Z\",\r\n            \"web_url\": \"https://github.com/hcoles/pitest/commit/cef73029ab02ee4486a340b21877e4ec4e545c18\"\r\n        }\r\n    ],\r\n    \"issues\": [\r\n        {\r\n            \"id\": \"1556497126\",\r\n            \"ref_id\": \"1150\",\r\n            \"title\": \"New extension points\",\r\n            \"description\": \"Adds new extension points to allow post analysis modification of coverage and mutation analysis results.\\r\\n\\r\\nExtensions points have multiple potential uses, but first use case is supporting the 'un-inlining' of inlined kotlin functions.\\r\\n\\r\\nChange requires alteration of existing interfaces which may be incompatible with some third party plugins.\",\r\n            \"state\": \"closed\",\r\n            \"created_at\": \"2023-01-25T11:35:30Z\",\r\n            \"updated_at\": \"2023-01-25T13:06:20Z\",\r\n            \"closed_at\": \"2023-01-25T13:06:19Z\",\r\n            \"labels\": [],\r\n            \"author\": {\r\n                \"id\": \"1891135\",\r\n                \"username\": \"hcoles\",\r\n                \"name\": \"Henry Coles\",\r\n                \"avatar_url\": \"https://avatars.githubusercontent.com/u/1891135?v=4\",\r\n                \"web_url\": \"https://api.github.com/users/hcoles\"\r\n            },\r\n            \"assignee\": null,\r\n            \"upvotes\": 0,\r\n            \"downvotes\": 0,\r\n            \"web_url\": \"https://api.github.com/repos/hcoles/pitest/issues/1150\",\r\n            \"comments\": []\r\n        },\r\n        {\r\n            \"id\": \"1554713335\",\r\n            \"ref_id\": \"1149\",\r\n            \"title\": \"Missing AOD operator\",\r\n            \"description\": \"Hello,\\r\\n\\r\\nI've just run pitest 1.10.4 and configured AOD as follows:\\r\\n\\r\\n```\\r\\n<pitest \\r\\n\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t  features=\\\"+EXPORT\\\" \\r\\n\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t  pitClasspath=\\\"pitest.path\\\" \\r\\n\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t  threads=\\\"2\\\" \\r\\n\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t  classPath=\\\"mutation.path\\\" \\r\\n\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t  targetTests=\\\"org.util.*\\\" \\r\\n\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t  targetClasses=\\\"org.util.TriangleUtil\\\" \\r\\n\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t  reportDir=\\\"pitReports\\\"\\r\\n\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t  sourceDir=\\\"src\\\" \\r\\n\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t  mutators=\\\"AOD\\\"\\r\\n\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t  outputFormats=\\\"HTML,CSV\\\"\\r\\n/>\\r\\n</target>\\r\\n```\\r\\n\\r\\nIt gives me the following:\\r\\n`Exception in thread \\\"main\\\" org.pitest.help.PitHelpError: Mutator or group AOD is unknown.`\\r\\n\\r\\nIt was working in version 1.7.4, not sure about the following ones.\\r\\n\\r\\nThanks,\\r\\nF.\",\r\n            \"state\": \"open\",\r\n            \"created_at\": \"2023-01-24T10:30:10Z\",\r\n            \"updated_at\": \"2023-01-24T11:19:41Z\",\r\n            \"closed_at\": null,\r\n            \"labels\": [],\r\n            \"author\": {\r\n                \"id\": \"5122337\",\r\n                \"username\": \"pastoref\",\r\n                \"name\": \"Fabrizio Pastore\",\r\n                \"avatar_url\": \"https://avatars.githubusercontent.com/u/5122337?v=4\",\r\n                \"web_url\": \"https://api.github.com/users/pastoref\"\r\n            },\r\n            \"assignee\": null,\r\n            \"upvotes\": 0,\r\n            \"downvotes\": 0,\r\n            \"web_url\": \"https://api.github.com/repos/hcoles/pitest/issues/1149\",\r\n            \"comments\": [\r\n                {\r\n                    \"id\": \"1401706648\",\r\n                    \"body\": \"The research operators (such as AOD) were moved into an external plugin in 1.7.5\\r\\n\\r\\nhttps://github.com/hcoles/pitest/releases/tag/1.7.5\",\r\n                    \"author\": {\r\n                        \"id\": \"1891135\",\r\n                        \"username\": \"hcoles\",\r\n                        \"name\": \"Henry Coles\",\r\n                        \"avatar_url\": \"https://avatars.githubusercontent.com/u/1891135?v=4\",\r\n                        \"web_url\": \"https://api.github.com/users/hcoles\"\r\n                    },\r\n                    \"created_at\": \"2023-01-24T10:35:17Z\",\r\n                    \"updated_at\": \"2023-01-24T10:35:17Z\"\r\n                },\r\n                {\r\n                    \"id\": \"1401764139\",\r\n                    \"body\": \"Thanks a lot for the quick reply and sorry for the false alarm. However, it seems to be incompatible with 1.10.*.\\r\\n\\r\\nMaybe you can mention it also on \\\"https://pitest.org/quickstart/mutators/\\\" under \\\"Experimental Mutators\\\"\\r\\n\\r\\nThank you,\\r\\nF.P.\",\r\n                    \"author\": {\r\n                        \"id\": \"5122337\",\r\n                        \"username\": \"pastoref\",\r\n                        \"name\": \"Fabrizio Pastore\",\r\n                        \"avatar_url\": \"https://avatars.githubusercontent.com/u/5122337?v=4\",\r\n                        \"web_url\": \"https://api.github.com/users/pastoref\"\r\n                    },\r\n                    \"created_at\": \"2023-01-24T11:19:40Z\",\r\n                    \"updated_at\": \"2023-01-24T11:19:40Z\"\r\n                }\r\n            ]\r\n        },\r\n        {\r\n            \"id\": \"1549280294\",\r\n            \"ref_id\": \"1148\",\r\n            \"title\": \"Coverage generation minion exited abnormally! (UNKNOWN_ERROR)  with v1.9.x and 1.10.x\",\r\n            \"description\": \"I have the following error when I run Pitest on my micro services :\\r\\n\\r\\n```\\r\\nClass, org.pitest.testapi.TestUnitExecutionListener)' of interface org.pitest.testapi.TestUnitFinder.\\r\\n15:14:24 PIT >> FINE : MINION :         at org.pitest.mutationtest.config.PrioritisingTestUnitFinder.findTestUnits(PrioritisingTestUnitFinder.java:20)\\r\\n15:14:24 PIT >> INFO : MINION : 15:14:24 PIT >> SEVERE : Error calculating coverage. Process will exit.\\r\\n15:14:24 PIT >> FINE : MINION :         at org.pitest.testapi.execute.FindTestUnits.findTestUnits(FindTestUnits.java:64)\\r\\n15:14:24 PIT >> SEVERE : Coverage generator Minion exited abnormally due to UNKNOWN_ERROR\\r\\n15:14:24 PIT >> INFO : MINION : java.lang.AbstractMethodError: Receiver class org.pitest.junit5.JUnit5TestUnitFinder does not define or inherit an implementation of the resolved method 'abstract java.util.List findTestUnits(java.lang.Class, org.pitest.testapi.TestUnitExecutionListener)' of interface org.pitest.testapi.TestUnitFinder.\\r\\n15:14:24 PIT >> FINE : MINION :         at org.pitest.testapi.execute.FindTestUnits.getTestUnits(FindTestUnits.java:47)\\r\\n15:14:24 PIT >> INFO : MINION :         at org.pitest.mutationtest.config.PrioritisingTestUnitFinder.findTestUnits(PrioritisingTestUnitFinder.java:20)\\r\\n15:14:24 PIT >> FINE : MINION :         at org.pitest.testapi.execute.FindTestUnits.findTestUnitsForAllSuppliedClasses(FindTestUnits.java:36)\\r\\n15:14:24 PIT >> INFO : MINION :         at org.pitest.testapi.execute.FindTestUnits.findTestUnits(FindTestUnits.java:64)\\r\\n[INFO] ------------------------------------------------------------------------15:14:24 PIT >> FINE : MINION :  at org.pitest.coverage.execute.CoverageMinion.discoverTests(CoverageMinion.java:167)\\r\\n15:14:24 PIT >> INFO : MINION :         at org.pitest.testapi.execute.FindTestUnits.getTestUnits(FindTestUnits.java:47)\\r\\n15:14:24 PIT >> FINE : MINION :         at org.pitest.coverage.execute.CoverageMinion.getTestsFromParent(CoverageMinion.java:153)\\r\\n[INFO] BUILD FAILURE15:14:24 PIT >> INFO : MINION :     at org.pitest.testapi.execute.FindTestUnits.findTestUnitsForAllSuppliedClasses(FindTestUnits.java:36)\\r\\n15:14:24 PIT >> FINE : MINION :         at org.pitest.coverage.execute.CoverageMinion.main(CoverageMinion.java:84)\\r\\n15:14:24 PIT >> INFO : MINION :         at org.pitest.coverage.execute.CoverageMinion.discoverTests(CoverageMinion.java:167)\\r\\n[INFO] ------------------------------------------------------------------------15:14:24 PIT >> INFO : MINION :  at org.pitest.coverage.execute.CoverageMinion.getTestsFromParent(CoverageMinion.java:153)\\r\\n15:14:24 PIT >> INFO : MINION :         at org.pitest.coverage.execute.CoverageMinion.main(CoverageMinion.java:84)\\r\\n[INFO] Total time:  18.204 s\\r\\n[INFO] Finished at: 2023-01-19T15:14:24+01:00\\r\\n[INFO] ------------------------------------------------------------------------\\r\\n[ERROR] Failed to execute goal org.pitest:pitest-maven:1.10.4:mutationCoverage (default-cli) on project td-ms: Execution default-cli of goal org.pitest:pitest-maven:1.10.4:mutationCoverage failed: Coverage generation minion exited abnormally! (UNKNOWN_ERROR)\\r\\n[ERROR]\\r\\n[ERROR] Please copy and paste the information and the complete stacktrace below when reporting an issue\\r\\n[ERROR] VM : OpenJDK 64-Bit Server VM\\r\\n[ERROR] Vendor : Azul Systems, Inc.\\r\\n[ERROR] Version : 11.0.12+7-LTS\\r\\n[ERROR] Uptime : 19079\\r\\n[ERROR] Input ->\\r\\n[ERROR]  1 : -Dclassworlds.conf=C:\\\\Tools\\\\apache-maven-3.8.3\\\\bin\\\\m2.conf\\r\\n[ERROR]  2 : -Dmaven.home=C:\\\\Tools\\\\apache-maven-3.8.3\\r\\n[ERROR]  3 : -Dlibrary.jansi.path=C:\\\\Tools\\\\apache-maven-3.8.3\\\\lib\\\\jansi-native\\r\\n[ERROR]  4 : -Dmaven.multiModuleProjectDirectory=C:\\\\repositories\\\\IdeaProjects\\\\muse-ng\\\\td-ms\\r\\n[ERROR] BootClassPathSupported : false\\r\\n[ERROR]\\r\\n[ERROR]\\r\\n[ERROR] Please copy and paste the information and the complete stacktrace below when reporting an issue\\r\\n[ERROR] VM : OpenJDK 64-Bit Server VM\\r\\n[ERROR] Vendor : Azul Systems, Inc.\\r\\n[ERROR] Version : 11.0.12+7-LTS\\r\\n[ERROR] Uptime : 19080\\r\\n[ERROR] Input ->\\r\\n[ERROR]  1 : -Dclassworlds.conf=C:\\\\Tools\\\\apache-maven-3.8.3\\\\bin\\\\m2.conf\\r\\n[ERROR]  2 : -Dmaven.home=C:\\\\Tools\\\\apache-maven-3.8.3\\r\\n[ERROR]  3 : -Dlibrary.jansi.path=C:\\\\Tools\\\\apache-maven-3.8.3\\\\lib\\\\jansi-native\\r\\n[ERROR]  4 : -Dmaven.multiModuleProjectDirectory=C:\\\\repositories\\\\IdeaProjects\\r\\n\\\\muse-ng\\\\td-ms\\r\\n[ERROR] BootClassPathSupported : false\\r\\n```\\r\\n\\r\\nMy PIT configuration is \\r\\n```\\r\\n  <groupId>org.pitest</groupId>\\r\\n  <artifactId>pitest-maven</artifactId>\\r\\n    <version>1.10.4</version>\\r\\n    <dependencies>\\r\\n        <dependency>\\r\\n            <groupId>org.pitest</groupId>\\r\\n            <artifactId>pitest-junit5-plugin</artifactId>\\r\\n            <version>1.1.2</version>\\r\\n        </dependency>\\r\\n    </dependencies>\\r\\n```\\r\\nand I use junit 5.9.2\\r\\n\\r\\nPitest is configured in a library on which I have no problem. But this library is the base of all my micro services and the problem occurs on all of them.\\r\\nI've used PITest on versions 1.8.x without problem. This error appears when I try to upgrade the tool to version 1.9.x or 1.10.x (this trace is from version 1.10.4)\\r\\n\",\r\n            \"state\": \"open\",\r\n            \"created_at\": \"2023-01-19T14:31:45Z\",\r\n            \"updated_at\": \"2023-01-19T14:31:45Z\",\r\n            \"closed_at\": null,\r\n            \"labels\": [],\r\n            \"author\": {\r\n                \"id\": \"120655075\",\r\n                \"username\": \"GerardSimon77\",\r\n                \"name\": null,\r\n                \"avatar_url\": \"https://avatars.githubusercontent.com/u/120655075?v=4\",\r\n                \"web_url\": \"https://api.github.com/users/GerardSimon77\"\r\n            },\r\n            \"assignee\": null,\r\n            \"upvotes\": 0,\r\n            \"downvotes\": 0,\r\n            \"web_url\": \"https://api.github.com/repos/hcoles/pitest/issues/1148\",\r\n            \"comments\": []\r\n        },\r\n        {\r\n            \"id\": \"1538006305\",\r\n            \"ref_id\": \"1147\",\r\n            \"title\": \"Testorder\",\r\n            \"description\": null,\r\n            \"state\": \"closed\",\r\n            \"created_at\": \"2023-01-18T13:28:38Z\",\r\n            \"updated_at\": \"2023-01-18T13:28:49Z\",\r\n            \"closed_at\": \"2023-01-18T13:28:49Z\",\r\n            \"labels\": [],\r\n            \"author\": {\r\n                \"id\": \"24887294\",\r\n                \"username\": \"pzzpl\",\r\n                \"name\": \"cnlzp\",\r\n                \"avatar_url\": \"https://avatars.githubusercontent.com/u/24887294?v=4\",\r\n                \"web_url\": \"https://api.github.com/users/pzzpl\"\r\n            },\r\n            \"assignee\": null,\r\n            \"upvotes\": 0,\r\n            \"downvotes\": 0,\r\n            \"web_url\": \"https://api.github.com/repos/hcoles/pitest/issues/1147\",\r\n            \"comments\": []\r\n        },\r\n        {\r\n            \"id\": \"1537933904\",\r\n            \"ref_id\": \"1146\",\r\n            \"title\": \"Fix spelling error in ComputClassWriter\",\r\n            \"description\": null,\r\n            \"state\": \"closed\",\r\n            \"created_at\": \"2023-01-18T12:39:44Z\",\r\n            \"updated_at\": \"2023-01-20T18:17:13Z\",\r\n            \"closed_at\": \"2023-01-20T18:17:09Z\",\r\n            \"labels\": [],\r\n            \"author\": {\r\n                \"id\": \"1671931\",\r\n                \"username\": \"davidburstrom\",\r\n                \"name\": null,\r\n                \"avatar_url\": \"https://avatars.githubusercontent.com/u/1671931?v=4\",\r\n                \"web_url\": \"https://api.github.com/users/davidburstrom\"\r\n            },\r\n            \"assignee\": null,\r\n            \"upvotes\": 0,\r\n            \"downvotes\": 0,\r\n            \"web_url\": \"https://api.github.com/repos/hcoles/pitest/issues/1146\",\r\n            \"comments\": [\r\n                {\r\n                    \"id\": \"1398766669\",\r\n                    \"body\": \"Thanks!\",\r\n                    \"author\": {\r\n                        \"id\": \"1891135\",\r\n                        \"username\": \"hcoles\",\r\n                        \"name\": \"Henry Coles\",\r\n                        \"avatar_url\": \"https://avatars.githubusercontent.com/u/1891135?v=4\",\r\n                        \"web_url\": \"https://api.github.com/users/hcoles\"\r\n                    },\r\n                    \"created_at\": \"2023-01-20T18:17:13Z\",\r\n                    \"updated_at\": \"2023-01-20T18:17:13Z\"\r\n                }\r\n            ]\r\n        },\r\n        {\r\n            \"id\": \"1532442155\",\r\n            \"ref_id\": \"1145\",\r\n            \"title\": \"false positive on orElseThrow() method.\",\r\n            \"description\": \"I'm facing a positive false when I use the methode `orElseThrow()` from `java.util.Optional `object.\\r\\n\\r\\nPitest replaces the returned value with a null but the `orElseThrow()` method can't return a null value.\\r\\n\\r\\n![image](https://user-images.githubusercontent.com/120655075/212349586-97f175f3-a4ee-4588-a5dc-1dca42867ec4.png)\\r\\n\\r\\nI'm currently using version 1.8.1 of Pitest\",\r\n            \"state\": \"closed\",\r\n            \"created_at\": \"2023-01-13T15:05:03Z\",\r\n            \"updated_at\": \"2023-01-19T13:42:48Z\",\r\n            \"closed_at\": \"2023-01-19T13:42:48Z\",\r\n            \"labels\": [],\r\n            \"author\": {\r\n                \"id\": \"120655075\",\r\n                \"username\": \"GerardSimon77\",\r\n                \"name\": null,\r\n                \"avatar_url\": \"https://avatars.githubusercontent.com/u/120655075?v=4\",\r\n                \"web_url\": \"https://api.github.com/users/GerardSimon77\"\r\n            },\r\n            \"assignee\": null,\r\n            \"upvotes\": 0,\r\n            \"downvotes\": 0,\r\n            \"web_url\": \"https://api.github.com/repos/hcoles/pitest/issues/1145\",\r\n            \"comments\": [\r\n                {\r\n                    \"id\": \"1382028186\",\r\n                    \"body\": \"Pitest has replaced the return value of the lambda defined on line 26 with null. The equivalent code would be\\r\\n\\r\\n```java\\r\\nopt.orElseThrow(() -> null);\\r\\n```\\r\\n\\r\\nWhile this is not the most useful mutation, it is valid. To detect it you would need to include a test case where `findByHumanResource` returned an empty Optional.\\r\\n\\r\\nYou might be interested in the [arcmutate base plugin](https://www.arcmutate.com/) which improves the descriptions of mutations to lambdas so they are easier to understand.\\r\\n\",\r\n                    \"author\": {\r\n                        \"id\": \"1891135\",\r\n                        \"username\": \"hcoles\",\r\n                        \"name\": \"Henry Coles\",\r\n                        \"avatar_url\": \"https://avatars.githubusercontent.com/u/1891135?v=4\",\r\n                        \"web_url\": \"https://api.github.com/users/hcoles\"\r\n                    },\r\n                    \"created_at\": \"2023-01-13T15:37:05Z\",\r\n                    \"updated_at\": \"2023-01-13T15:37:18Z\"\r\n                },\r\n                {\r\n                    \"id\": \"1382170324\",\r\n                    \"body\": \"Thanks you for your quik reply, but I have another question.\\r\\n\\r\\nIn the following example I don't inderstand why Pitest doesn't try some mutation on line 34. For example why it doesn't try to remove this call like it is done for lines 32 and 33 ?\\r\\n\\r\\n![image](https://user-images.githubusercontent.com/120655075/212380616-c4ab3ea7-763e-4a3b-b868-d8238adf2bf2.png)\\r\\n\",\r\n                    \"author\": {\r\n                        \"id\": \"120655075\",\r\n                        \"username\": \"GerardSimon77\",\r\n                        \"name\": null,\r\n                        \"avatar_url\": \"https://avatars.githubusercontent.com/u/120655075?v=4\",\r\n                        \"web_url\": \"https://api.github.com/users/GerardSimon77\"\r\n                    },\r\n                    \"created_at\": \"2023-01-13T17:30:25Z\",\r\n                    \"updated_at\": \"2023-01-13T17:30:25Z\"\r\n                },\r\n                {\r\n                    \"id\": \"1382216587\",\r\n                    \"body\": \"Assuming you are using the default operators, the [VOID_METHOD_CALLS](https://pitest.org/quickstart/mutators/#VOID_METHOD_CALLS) mutator will be active, but the [NON_VOID_METHOD_CALLS](https://pitest.org/quickstart/mutators/#NON_VOID_METHOD_CALLS) mutator will not be activated. The call to the save method is therefore not mutated as it returns a value.\\r\\n\\r\\nYou can activate the NON_VOID_METHOD_CALLS mutator, but be aware there is a trade off to be made here. It will generate a relatively large number of mutants and they will often not add much value as they are less stable than the non void ones.\",\r\n                    \"author\": {\r\n                        \"id\": \"1891135\",\r\n                        \"username\": \"hcoles\",\r\n                        \"name\": \"Henry Coles\",\r\n                        \"avatar_url\": \"https://avatars.githubusercontent.com/u/1891135?v=4\",\r\n                        \"web_url\": \"https://api.github.com/users/hcoles\"\r\n                    },\r\n                    \"created_at\": \"2023-01-13T18:15:51Z\",\r\n                    \"updated_at\": \"2023-01-13T18:15:51Z\"\r\n                }\r\n            ]\r\n        }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/gitminer/projects",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"gitminer",
+						"projects"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get all projects",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Body matches project ID\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include(\"\\\"id\\\":\\\"15717393\\\"\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/gitminer/projects",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"gitminer",
+						"projects"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get project",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Body matches project name\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include(\"\\\"name\\\":\\\"pitest\\\"\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/gitminer/projects/15717393",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"gitminer",
+						"projects",
+						"15717393"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get all commits",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Body matches commit ID\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include(\"\\\"id\\\":\\\"cef73029ab02ee4486a340b21877e4ec4e545c18\\\"\");\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/gitminer/commits",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"gitminer",
+						"commits"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get commit",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Body matches commit ID\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include(\"\\\"id\\\":\\\"ee6e291274fcca03801261f1fd0684aa32c6d140\\\"\");\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/gitminer/commits/ee6e291274fcca03801261f1fd0684aa32c6d140",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"gitminer",
+						"commits",
+						"ee6e291274fcca03801261f1fd0684aa32c6d140"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get commits by email address",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Body matches email address\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include(\"\\\"author_email\\\":\\\"henry@pitest.org\\\"\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/gitminer/commits?email=henry@pitest.org",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"gitminer",
+						"commits"
+					],
+					"query": [
+						{
+							"key": "email",
+							"value": "henry@pitest.org"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get all issues",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Body matches ref ID\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include(\"\\\"ref_id\\\":\\\"1150\\\"\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/gitminer/issues",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"gitminer",
+						"issues"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get issue by ID",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Body matches ref ID\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include(\"\\\"ref_id\\\":\\\"1150\\\"\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/gitminer/issues/1556497126",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"gitminer",
+						"issues",
+						"1556497126"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get issue's comments",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Body matches comment body content\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include(\"\\\"body\\\":\\\"Thanks a lot for the quick reply\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/gitminer/issues/1554713335/comments",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"gitminer",
+						"issues",
+						"1554713335",
+						"comments"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get issues by author ID",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Body matches issue title\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include(\"\\\"title\\\":\\\"Missing AOD operator\\\"\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/gitminer/issues?authorId=5122337",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"gitminer",
+						"issues"
+					],
+					"query": [
+						{
+							"key": "authorId",
+							"value": "5122337"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get issues by state",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Body matches issue state\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include(\"\\\"state\\\":\\\"open\\\"\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/gitminer/issues?state=open",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"gitminer",
+						"issues"
+					],
+					"query": [
+						{
+							"key": "state",
+							"value": "open"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get all comments",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Body matches comment body content\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include(\"\\\"body\\\":\\\"Thanks a lot for the quick reply\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/gitminer/comments",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"gitminer",
+						"comments"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get comments by ID",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Body matches comment ID\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include(\"\\\"id\\\":\\\"1398766669\\\"\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/gitminer/comments/1398766669",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"gitminer",
+						"comments",
+						"1398766669"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

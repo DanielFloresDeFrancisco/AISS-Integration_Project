@@ -1,0 +1,111 @@
+{
+	"info": {
+		"_postman_id": "645db7f9-1e89-460e-9276-9782ea76946c",
+		"name": "APIs Final Test",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "26915309"
+	},
+	"item": [
+		{
+			"name": "Post from GitLabMiner (8082)",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8082/gitlabminer/projects/10993694",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"gitlabminer",
+						"projects",
+						"10993694"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Post from GitHubMiner (8081)",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8081/githubminer/projects/octocat/Hello-World?maxPages=2&sinceCommits=2&sinceIssues=2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"githubminer",
+						"projects",
+						"octocat",
+						"Hello-World"
+					],
+					"query": [
+						{
+							"key": "maxPages",
+							"value": "2"
+						},
+						{
+							"key": "sinceCommits",
+							"value": "2"
+						},
+						{
+							"key": "sinceIssues",
+							"value": "2"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get from GitLabMiner",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "Get from GitHubMiner",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8081/githubminer/projects/microsoft/HealthVault-Mobile-iOS-Library?maxPages=2&sinceCommits=2&sinceIssues=2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"githubminer",
+						"projects",
+						"microsoft",
+						"HealthVault-Mobile-iOS-Library"
+					],
+					"query": [
+						{
+							"key": "maxPages",
+							"value": "2"
+						},
+						{
+							"key": "sinceCommits",
+							"value": "2"
+						},
+						{
+							"key": "sinceIssues",
+							"value": "2"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
