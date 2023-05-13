@@ -31,7 +31,7 @@ public class Issue {
     @JsonProperty("closed_by")
     private Object closedBy;
     @JsonProperty("labels")
-    private List<Object> labels;
+    private List<String> labels;
     @JsonProperty("milestone")
     private Object milestone;
     @JsonProperty("assignees")
@@ -190,12 +190,12 @@ public class Issue {
     }
 
     @JsonProperty("labels")
-    public List<Object> getLabels() {
+    public List<String> getLabels() {
         return labels;
     }
 
     @JsonProperty("labels")
-    public void setLabels(List<Object> labels) {
+    public void setLabels(List<String> labels) {
         this.labels = labels;
     }
 

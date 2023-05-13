@@ -11,11 +11,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import java.util.ArrayList;
 import java.util.List;
 
-@Entity
-@Table(name = "Issue")
+
 public class IssueGM {
 
-    @Id
     @JsonProperty("id")
     private String id;
 
@@ -24,7 +22,6 @@ public class IssueGM {
     @JsonProperty("title")
     private String title;
     @JsonProperty("description")
-    @Column(columnDefinition = "TEXT")
     private String description;
     @JsonProperty("state")
     private String state;
@@ -39,13 +36,8 @@ public class IssueGM {
     @ElementCollection
     private List<String> labels;
     @JsonProperty("author")
-    //@NotEmpty(message = "The author of the issue cannot be empty")
-    @JoinColumn(name = "author_id", referencedColumnName = "id")
-    @OneToOne(cascade = CascadeType.ALL)
     private UserGM author;
     @JsonProperty("assignee")
-    @JoinColumn(name = "assignee_id", referencedColumnName = "id")
-    @OneToOne(cascade = CascadeType.ALL)
     private UserGM assignee;
     @JsonProperty("upvotes")
     private Integer upvotes;
@@ -56,8 +48,6 @@ public class IssueGM {
     private String webUrl;
 
     @JsonProperty("comments")
-    @OneToMany(cascade = CascadeType.ALL)
-    @JoinColumn(name = "issueId")
     private List<CommentGM> comments;
 
     public String getId() {
@@ -180,10 +170,8 @@ public class IssueGM {
         this.comments = comments;
     }
 
-    @Autowired
-    CommentService service;
-
-    public IssueGM(Issue issue, String projectId) {
+    public IssueGM () {}
+    public IssueGM(Issue issue, List<Comment> lCom) {
 
         this.id = issue.getId().toString();
         this.refId = issue.getIid().toString();
@@ -192,23 +180,54 @@ public class IssueGM {
         this.state = issue.getState();
         this.createdAt = issue.getCreatedAt();
         this.updatedAt = issue.getUpdatedAt();
-        this.closedAt = issue.getClosedAt().toString();
-        this.labels = getLabels();
+        if (issue.getClosedAt() == null) {
+            this.closedAt = "Open";
+        } else {
+            this.closedAt = issue.getClosedAt().toString();
+        }
+        if (issue.getLabels() == null) {
+            this.labels = new ArrayList<>();
+        } else {
+            this.labels = issue.getLabels();
+        }
         this.author = new UserGM(issue.getAuthor());
-        this.assignee = new UserGM(issue.getAssignee());
+        if (issue.getAssignee() == null) {
+            this.assignee = null;
+        } else {
+            this.assignee = new UserGM(issue.getAssignee());
+        }
         this.upvotes = issue.getUpvotes();
         this.downvotes = issue.getDownvotes();
         this.webUrl = issue.getWebUrl();
 
-        List<Comment> comments = service.findCommentsOfIssue(projectId, issue.getIid().toString());
-
         List<CommentGM> lComment = new ArrayList<>();
-        for ( Comment c: comments) {
+        for (Comment c: lCom) {
             lComment.add(new CommentGM(c));
         }
 
         this.comments = lComment;
 
+    }
+
+    @Override
+    public String toString() {
+        return "IssueGM{" +
+                "id='" + id + '\'' +
+                ", refId='" + refId + '\'' +
+                ", title='" + title + '\'' +
+                ", description='" + description + '\'' +
+                ", state='" + state + '\'' +
+                ", createdAt='" + createdAt + '\'' +
+                ", updatedAt='" + updatedAt + '\'' +
+                ", closedAt='" + closedAt + '\'' +
+                ", labels=" + labels +
+                ", author=" + author +
+                ", assignee=" + assignee +
+                ", upvotes=" + upvotes +
+                ", downvotes=" + downvotes +
+                ", webUrl='" + webUrl + '\'' +
+                ", comments=" + comments +
+                '}';
     }
 }
 

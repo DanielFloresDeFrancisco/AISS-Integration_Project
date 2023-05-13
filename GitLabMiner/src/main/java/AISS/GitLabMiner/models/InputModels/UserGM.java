@@ -11,15 +11,12 @@ import jakarta.validation.constraints.NotEmpty;
 
 import java.util.Locale;
 
-@Entity
-@Table(name = "GMUser")     // Watch out: User is a reserved keyword in H2
+   // Watch out: User is a reserved keyword in H2
 public class UserGM {
 
-    @Id
     @JsonProperty("id")
     private String id;
     @JsonProperty("username")
-    @NotEmpty(message = "The username cannot be empty")
     private String username;
     @JsonProperty("name")
     private String name;
@@ -68,6 +65,8 @@ public class UserGM {
         this.webUrl = webUrl;
     }
 
+    public UserGM () {}
+
     public UserGM( String id, String username, String name, String avatarUrl, String webUrl) {
         this.id = id;
         this.username = username;
@@ -109,4 +108,15 @@ public class UserGM {
         }
         return sol;
     }
-}
+
+       @Override
+       public String toString() {
+           return "UserGM{" +
+                   "id='" + id + '\'' +
+                   ", username='" + username + '\'' +
+                   ", name='" + name + '\'' +
+                   ", avatarUrl='" + avatarUrl + '\'' +
+                   ", webUrl='" + webUrl + '\'' +
+                   '}';
+       }
+   }

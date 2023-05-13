@@ -1,5 +1,6 @@
 package AISS.GitLabMiner.models.InputModels;
 
+import AISS.GitLabMiner.models.Comment;
 import AISS.GitLabMiner.models.Commit;
 import AISS.GitLabMiner.models.Issue;
 import AISS.GitLabMiner.models.Project;
@@ -9,36 +10,26 @@ import jakarta.validation.constraints.NotEmpty;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
-@Entity
-@Table(name = "Project")
+
 public class ProjectGM {
 
-    @Id
+
     @JsonProperty("id")
     public String id;
 
     @JsonProperty("name")
-    @NotEmpty(message = "The name of the project cannot be empty")
     public String name;
 
     @JsonProperty("web_url")
-    @NotEmpty(message = "The URL of the project cannot be empty")
     public String webUrl;
     @JsonProperty("commits")
-    @OneToMany(cascade = CascadeType.ALL)
-    @JoinColumn(name = "projectId")
     private List<CommitGM> commits;
 
     @JsonProperty("issues")
-    @OneToMany(cascade = CascadeType.ALL)
-    @JoinColumn(name = "projectId")
     private List<IssueGM> issues;
 
-    public ProjectGM() {
-        commits = new ArrayList<>();
-        issues = new ArrayList<>();
-    }
 
     public String getId() {
         return id;
@@ -80,7 +71,10 @@ public class ProjectGM {
         this.issues = issues;
     }
 
-    public ProjectGM (Project project, List<Commit> commits, List<Issue> issues) {
+    public ProjectGM () {}
+
+    public ProjectGM (Project project, List<Commit> commits, List<Issue> issues,
+                      Map<Integer, List<Comment>> lCom) {
         this.id = project.getId().toString();
         this.name = project.getName();
         this.webUrl = project.getWebUrl();
@@ -93,8 +87,19 @@ public class ProjectGM {
 
         List<IssueGM> lIssues = new ArrayList<>();
         for (Issue i: issues) {
-            lIssues.add(new IssueGM(i, project.getId().toString()));
+            lIssues.add(new IssueGM(i, lCom.get(i.getId())));
         }
         this.issues = lIssues;
+    }
+
+    @Override
+    public String toString() {
+        return "ProjectGM{" +
+                "id='" + id + '\'' +
+                ", name='" + name + '\'' +
+                ", webUrl='" + webUrl + '\'' +
+                ", commits=" + commits +
+                ", issues=" + issues +
+                '}';
     }
 }

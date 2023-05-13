@@ -5,25 +5,19 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotEmpty;
 
-@Entity
-@Table(name = "Comment")
+
 public class CommentGM {
 
-    @Id
+
     @JsonProperty("id")
     private String id;
     @JsonProperty("body")
-    @NotEmpty(message = "The message cannot be empty.")
-    @Column(columnDefinition="TEXT")
     private String body;
 
     @JsonProperty("author")
-    @JoinColumn(name = "author_id", referencedColumnName = "id")
-    @OneToOne(cascade=CascadeType.ALL)
     private UserGM author;
 
     @JsonProperty("created_at")
-    @NotEmpty(message = "The field created_at cannot be empty.")
     private String createdAt;
     @JsonProperty("updated_at")
     private String updatedAt;
@@ -68,6 +62,8 @@ public class CommentGM {
         this.updatedAt = updatedAt;
     }
 
+    public CommentGM () {}
+
 
     public CommentGM (Comment comment) {
         this.id = comment.getId().toString();
@@ -75,5 +71,16 @@ public class CommentGM {
         this.author = new UserGM(comment.getAuthor());
         this.createdAt = comment.getCreatedAt();
         this.updatedAt = comment.getUpdatedAt();
+    }
+
+    @Override
+    public String toString() {
+        return "CommentGM{" +
+                "id='" + id + '\'' +
+                ", body='" + body + '\'' +
+                ", author=" + author +
+                ", createdAt='" + createdAt + '\'' +
+                ", updatedAt='" + updatedAt + '\'' +
+                '}';
     }
 }

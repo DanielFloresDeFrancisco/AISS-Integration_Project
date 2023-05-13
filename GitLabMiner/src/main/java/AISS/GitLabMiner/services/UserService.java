@@ -24,7 +24,7 @@ public class UserService {
         return Arrays.stream(users).toList();
     }
 
-    public List<User> findUsers() {
+    public List<User> getAllUsers() {
         HttpHeaders headers = new HttpHeaders();
         String token = "glpat-qcx9bNqo6zTYxEzzJdvT";
 

@@ -25,7 +25,7 @@ public class CommitService {
 
     String baseUri = "https://gitlab.com/api/v4/projects/";
 
-    public List<Commit> findCommitsOfProject(String projectId) {
+    public List<Commit> getCommitsOfProject(String projectId) {
         String uri = baseUri + projectId + "/repository/commits";
         HttpHeaders headers = new HttpHeaders();
         String token = "glpat-qcx9bNqo6zTYxEzzJdvT";
@@ -39,19 +39,30 @@ public class CommitService {
         return commits;
     }
 
-    public List<Commit> findCommitsPagination(String projectId) {
+    public List<Commit> getCommitsPagination(String projectId, Integer maxPages, Integer sinceCommit) {
         String token = "glpat-qcx9bNqo6zTYxEzzJdvT";
         List<Commit> commits = new ArrayList<>();
         boolean hasMorePages = true;
         int page = 1;
 
+        // Default values set as 2
+        if (maxPages == null) {
+            maxPages = 2;
+        }
+        if (sinceCommit == null) {
+            sinceCommit = 2;
+        }
+
+        LocalDateTime since = LocalDateTime.now().minusDays(sinceCommit);
+
         HttpHeaders headers = new HttpHeaders();
         headers.setBearerAuth(token);
 
-        while (hasMorePages && page <= 30) {
+        while (hasMorePages && page <= maxPages) {
             UriComponentsBuilder uriBuilder = UriComponentsBuilder
                     .fromUriString(baseUri + projectId + "/repository/commits")
-                    .queryParam("page", page);
+                    .queryParam("page", page)
+                    .queryParam("since", since);
 
             HttpEntity<?> entity = new HttpEntity<>(headers);
             ResponseEntity<Commit[]> response = restTemplate.exchange(uriBuilder.toUriString(),
@@ -72,7 +83,7 @@ public class CommitService {
     }
 
 
-    public Commit findOneCommitById(String projectId, String commitId) {
+    public Commit getOneCommitById(String projectId, String commitId) {
         String uri = baseUri + projectId + "/repository/commits/" + commitId;
         HttpHeaders headers = new HttpHeaders();
         String token = "glpat-qcx9bNqo6zTYxEzzJdvT";

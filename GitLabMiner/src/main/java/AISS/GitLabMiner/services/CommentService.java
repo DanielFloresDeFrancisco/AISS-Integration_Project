@@ -21,7 +21,7 @@ public class CommentService {
 
     String baseUri = "https://gitlab.com/api/v4/projects/";
 
-    public List<Comment> findCommentsOfIssue(String projectId, String issueIid) {
+    public List<Comment> getCommentsOfIssue(String projectId, String issueIid) {
         String uri = baseUri + projectId + "/issues/" + issueIid + "/notes";
         HttpHeaders headers = new HttpHeaders();
         String token = "glpat-qcx9bNqo6zTYxEzzJdvT";

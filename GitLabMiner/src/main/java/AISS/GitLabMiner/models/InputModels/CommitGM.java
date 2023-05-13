@@ -9,40 +9,31 @@ import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotEmpty;
 
 
-@Entity
-@Table(name = "Commit")
+
 public class CommitGM {
 
-    @Id
     @JsonProperty("id")
     private String id;
     @JsonProperty("title")
     private String title;
 
     @JsonProperty("message")
-    @Column(columnDefinition="TEXT")
     private String message;
     @JsonProperty("author_name")
-    @NotEmpty(message = "Author name cannot be empty.")
     private String authorName;
     @JsonProperty("author_email")
     private String authorEmail;
     @JsonProperty("authored_date")
-    @NotEmpty(message = "Author date cannot be empty.")
     private String authoredDate;
     @JsonProperty("committer_name")
-    @NotEmpty(message = "Committer name cannot be empty.")
     private String committerName;
     @JsonProperty("committer_email")
     private String committerEmail;
 
     @JsonProperty("committed_date")
-    @NotEmpty(message = "Committer date cannot be empty.")
     private String committedDate;
 
     @JsonProperty("web_url")
-    @NotEmpty(message = "URL cannot be empty." +
-            "")
     private String webUrl;
 
     public String getId() {
@@ -125,6 +116,8 @@ public class CommitGM {
         this.webUrl = webUrl;
     }
 
+    public CommitGM () {}
+
     public CommitGM(String id, String title, String message, String authorName, String authorEmail,
                     String authoredDate, String committerName, String committerEmail, String committedDate, String webUrl) {
         this.id = id;
@@ -150,5 +143,21 @@ public class CommitGM {
           this.committerEmail = commit.getCommitterEmail();
           this.committedDate = commit.getCommittedDate();
           this.webUrl = commit.getWebUrl();
+    }
+
+    @Override
+    public String toString() {
+        return "CommitGM{" +
+                "id='" + id + '\'' +
+                ", title='" + title + '\'' +
+                ", message='" + message + '\'' +
+                ", authorName='" + authorName + '\'' +
+                ", authorEmail='" + authorEmail + '\'' +
+                ", authoredDate='" + authoredDate + '\'' +
+                ", committerName='" + committerName + '\'' +
+                ", committerEmail='" + committerEmail + '\'' +
+                ", committedDate='" + committedDate + '\'' +
+                ", webUrl='" + webUrl + '\'' +
+                '}';
     }
 }

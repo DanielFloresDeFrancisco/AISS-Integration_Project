@@ -2,6 +2,7 @@ package AISS.GitLabMiner.services;
 
 import AISS.GitLabMiner.models.Commit;
 import AISS.GitLabMiner.models.Issue;
+import jakarta.persistence.criteria.CriteriaBuilder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
@@ -15,6 +16,7 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Locale;
 
 @Service
 public class IssueService {
@@ -24,7 +26,7 @@ public class IssueService {
 
     String baseUri = "https://gitlab.com/api/v4/projects/";
 
-    public List<Issue> findIssuesOfProject(String projectId) {
+    public List<Issue> getIssuesOfProject(String projectId) {
         String uri = baseUri + projectId + "/issues";
         HttpHeaders headers = new HttpHeaders();
         String token = "glpat-qcx9bNqo6zTYxEzzJdvT";
@@ -38,19 +40,30 @@ public class IssueService {
         return isssues;
     }
 
-    public List<Issue> findIssuesPagination(String projectId) {
+    public List<Issue> getIssuesPagination(String projectId, Integer maxPages, Integer sinceIssue) {
         String token = "glpat-qcx9bNqo6zTYxEzzJdvT";
         List<Issue> issues = new ArrayList<>();
         boolean hasMorePages = true;
         int page = 1;
 
+        // Default values set as 2
+        if (maxPages == null) {
+            maxPages = 2;
+        }
+        if (sinceIssue== null) {
+            sinceIssue = 2;
+        }
+
+        LocalDateTime since = LocalDateTime.now().minusDays(sinceIssue);
+
         HttpHeaders headers = new HttpHeaders();
         headers.setBearerAuth(token);
 
-        while (hasMorePages && page <= 30) {
+        while (hasMorePages && page <= maxPages) {
             UriComponentsBuilder uriBuilder = UriComponentsBuilder
                     .fromUriString(baseUri + projectId + "/issues")
-                    .queryParam("page", page);
+                    .queryParam("page", page)
+                    .queryParam("created_after", since);
 
             HttpEntity<?> entity = new HttpEntity<>(headers);
             ResponseEntity<Issue[]> response = restTemplate.exchange(uriBuilder.toUriString(),
