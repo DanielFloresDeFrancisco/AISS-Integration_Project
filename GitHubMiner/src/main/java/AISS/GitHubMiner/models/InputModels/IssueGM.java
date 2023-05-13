@@ -1,0 +1,252 @@
+package AISS.GitHubMiner.models.InputModels;
+
+import AISS.GitHubMiner.models.Comment;
+import AISS.GitHubMiner.models.Issue;
+import AISS.GitHubMiner.services.CommentService;
+import AISS.GitHubMiner.services.IssueService;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import net.bytebuddy.matcher.FilterableList;
+import org.springframework.beans.factory.annotation.Autowired;
+
+import javax.persistence.*;
+
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class IssueGM {
+    @JsonProperty("id")
+    private String id;
+
+    @JsonProperty("ref_id")
+    private String refId;
+    @JsonProperty("title")
+    private String title;
+    @JsonProperty("description")
+    private String description;
+    @JsonProperty("state")
+    private String state;
+
+    @JsonProperty("created_at")
+    private String createdAt;
+    @JsonProperty("updated_at")
+    private String updatedAt;
+    @JsonProperty("closed_at")
+    private String closedAt;
+    @JsonProperty("labels")
+    @ElementCollection
+    private List<String> labels;
+    @JsonProperty("author")
+    //@NotEmpty(message = "The author of the issue cannot be empty")
+    private UserGM author;
+    @JsonProperty("assignee")
+    private UserGM assignee;
+    @JsonProperty("upvotes")
+    private Integer upvotes;
+    @JsonProperty("downvotes")
+    private Integer downvotes;
+
+    @JsonProperty("web_url")
+    private String webUrl;
+
+    @JsonProperty("comments")
+    private List<CommentGM> comments;
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public String getRefId() {
+        return refId;
+    }
+
+    public void setRefId(String refId) {
+        this.refId = refId;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public String getState() {
+        return state;
+    }
+
+    public void setState(String state) {
+        this.state = state;
+    }
+
+    public String getCreatedAt() {
+        return createdAt;
+    }
+
+    public void setCreatedAt(String createdAt) {
+        this.createdAt = createdAt;
+    }
+
+    public String getUpdatedAt() {
+        return updatedAt;
+    }
+
+    public void setUpdatedAt(String updatedAt) {
+        this.updatedAt = updatedAt;
+    }
+
+    public String getClosedAt() {
+        return closedAt;
+    }
+
+    public void setClosedAt(String closedAt) {
+        this.closedAt = closedAt;
+    }
+
+    public List<String> getLabels() {
+        return labels;
+    }
+
+    public void setLabels(List<String> labels) {
+        this.labels = labels;
+    }
+
+    public UserGM getAuthor() {
+        return author;
+    }
+
+    public void setAuthor(UserGM author) {
+        this.author = author;
+    }
+
+    public UserGM getAssignee() {
+        return assignee;
+    }
+
+    public void setAssignee(UserGM assignee) {
+        this.assignee = assignee;
+    }
+
+    public Integer getUpvotes() {
+        return upvotes;
+    }
+
+    public void setUpvotes(Integer upvotes) {
+        this.upvotes = upvotes;
+    }
+
+    public Integer getDownvotes() {
+        return downvotes;
+    }
+
+    public void setDownvotes(Integer downvotes) {
+        this.downvotes = downvotes;
+    }
+
+    public String getWebUrl() {
+        return webUrl;
+    }
+
+    public void setWebUrl(String webUrl) {
+        this.webUrl = webUrl;
+    }
+
+    public List<CommentGM> getComments() {
+        return comments;
+    }
+
+    public void setComments(List<CommentGM> comments) {
+        this.comments = comments;
+    }
+
+    public IssueGM () {}
+
+    private List<String> prueba = new ArrayList<>();
+
+    public IssueGM(Issue issue, List<Comment> com) {
+
+        this.id = issue.getId().toString();
+        this.refId = issue.getNumber().toString();
+        this.title = issue.getTitle();
+        this.description = "GitHub issue has no description";
+        this.state = issue.getState();
+        this.createdAt = issue.getCreatedAt();
+        this.updatedAt = issue.getUpdatedAt();
+
+        List<String> lista = new ArrayList<>();
+        lista.add("GitHubLabel");
+
+        if (issue.getClosedAt() == null) {
+            this.closedAt = "Open";
+        } else {
+            this.closedAt = issue.getClosedAt().toString();
+        }
+
+        if (issue.getLabels() == null) {
+            this.labels = new ArrayList<>();
+        } else {
+            this.labels = issue.getLabels().stream().map(l -> l.toString()).toList();
+        }
+
+        this.author = new UserGM(issue.getUser());
+
+        if (issue.getAssignee() == null) {
+            this.assignee = null;
+        } else {
+            this.assignee = new UserGM(issue.getAssignee());
+        }
+        if (issue.getReactions().getUpvote() == null) {
+            this.upvotes = 0;
+        } else {
+            this.upvotes = issue.getReactions().getUpvote();
+        }
+        if (issue.getReactions().getDownvote() == null) {
+            this.downvotes = 0;
+        } else {
+            this.downvotes = issue.getReactions().getDownvote();
+        }
+        this.webUrl = issue.getUrl();
+
+        List<CommentGM> lC = new ArrayList<>();
+        for (Comment c: com) {
+            lC.add(new CommentGM(c));
+        }
+
+        this.comments = lC;
+    }
+
+    @Override
+    public String toString() {
+        return "IssueGM{" +
+                "id='" + id + '\'' +
+                ", refId='" + refId + '\'' +
+                ", title='" + title + '\'' +
+                ", description='" + description + '\'' +
+                ", state='" + state + '\'' +
+                ", createdAt='" + createdAt + '\'' +
+                ", updatedAt='" + updatedAt + '\'' +
+                ", closedAt='" + closedAt + '\'' +
+                ", labels=" + labels +
+                ", author=" + author +
+                ", assignee=" + assignee +
+                ", upvotes=" + upvotes +
+                ", downvotes=" + downvotes +
+                ", webUrl='" + webUrl + '\'' +
+                ", comments=" + comments +
+                '}';
+    }
+}
+
