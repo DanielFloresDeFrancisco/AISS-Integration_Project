@@ -12,7 +12,7 @@
 				"method": "POST",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8082/gitlabminer/projects/10993694",
+					"raw": "http://localhost:8082/gitlabminer/projects/10993694?maxPages=2&sinceCommits=100&sinceIssues=100",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -22,6 +22,20 @@
 						"gitlabminer",
 						"projects",
 						"10993694"
+					],
+					"query": [
+						{
+							"key": "maxPages",
+							"value": "2"
+						},
+						{
+							"key": "sinceCommits",
+							"value": "100"
+						},
+						{
+							"key": "sinceIssues",
+							"value": "100"
+						}
 					]
 				}
 			},
@@ -67,7 +81,34 @@
 			"name": "Get from GitLabMiner",
 			"request": {
 				"method": "GET",
-				"header": []
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8082/gitlabminer/projects/10993694?maxPages=2&sinceCommits=100&sinceIssues=100",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"gitlabminer",
+						"projects",
+						"10993694"
+					],
+					"query": [
+						{
+							"key": "maxPages",
+							"value": "2"
+						},
+						{
+							"key": "sinceCommits",
+							"value": "100"
+						},
+						{
+							"key": "sinceIssues",
+							"value": "100"
+						}
+					]
+				}
 			},
 			"response": []
 		},
