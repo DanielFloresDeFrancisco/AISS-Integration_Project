@@ -41,7 +41,7 @@ public class CommitService {
     }
 
     public List<Commit> getCommitsPagination(String owner, String repos, Integer maxPages, Integer sinceCommits) {
-        String token = "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";
+        String token = "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";
         List<Commit> commits = new ArrayList<>();
         boolean hasMorePages = true;
         int page = 1;

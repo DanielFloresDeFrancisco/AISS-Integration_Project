@@ -38,7 +38,7 @@ public class IssueService {
     }
 
     public List<Issue> getIssuesPagination(String owner, String repo, Integer maxPages, Integer sinceIssues) {
-        String token = "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";
+        String token = "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";
         List<Issue> issues = new ArrayList<>();
         boolean hasMorePages = true;
         int page = 1;
